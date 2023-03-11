@@ -1,0 +1,61 @@
+﻿<Window x:Class="ТСПО_1_JSON.Task4_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ТСПО_1_JSON"
+        mc:Ignorable="d"
+        Title="Task4_Window" Height="450" Width="800">
+    
+    <Grid VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,10,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="371*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition Height="10"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"></ColumnDefinition>
+                <ColumnDefinition Width="50"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <ComboBox Grid.Row="0" Grid.Column="0" x:Name="TermsComboBox">
+                <ComboBoxItem IsSelected="True" Tag="1">1</ComboBoxItem>
+                <ComboBoxItem Tag="2">2</ComboBoxItem>
+                <ComboBoxItem Tag="3">3</ComboBoxItem>
+                <ComboBoxItem Tag="4">4</ComboBoxItem>
+                <ComboBoxItem Tag="5">5</ComboBoxItem>
+                <ComboBoxItem Tag="6">6</ComboBoxItem>
+                <ComboBoxItem Tag="7">7</ComboBoxItem>
+                <ComboBoxItem Tag="8">8</ComboBoxItem>
+            </ComboBox>
+
+            <Button x:Name="ButtonFind" Grid.Column="1" Grid.Row="0"  FontSize="20" VerticalAlignment="Center" Click="ButtonFind_Click">
+                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextAlignment="Center">Найти</TextBlock>
+            </Button>
+
+        </Grid>
+
+        <DataGrid  x:Name="DisciplineDataGrid" VerticalAlignment="Top" Width="500" ItemsSource="{Binding Disciplines, Mode=OneWay}" AutoGenerateColumns="False" Grid.Column="0" Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Шифр" Width="90" Binding="{Binding Index}"/>
+                <DataGridTextColumn Header="Название дисциплины" Width="400" Binding="{Binding Title}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

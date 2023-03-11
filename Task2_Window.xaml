@@ -1,0 +1,65 @@
+﻿<Window x:Class="ТСПО_1_JSON.Task2_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ТСПО_1_JSON"
+        mc:Ignorable="d"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Title="Task2_Window" Height="500" Width="1100">
+
+
+    <Grid  VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10px">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="10"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="10"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1000"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <ComboBox Grid.Row="0" Grid.Column="0" x:Name="UniversalCompetenceComboBox" DisplayMemberPath="Value">
+            </ComboBox>
+
+            <Button x:Name="ButtonUniversal" Grid.Column="1" Grid.Row="0"  FontSize="20" VerticalAlignment="Center" Click="ButtonUniversal_Click">
+                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextAlignment="Center">Найти</TextBlock>
+            </Button>
+
+            <ComboBox Grid.Row="2" Grid.Column="0" x:Name="CommonCompetenceComboBox" DisplayMemberPath="Value">
+            </ComboBox>
+
+            <Button x:Name="ButtonCommon" Grid.Column="1" Grid.Row="2"  FontSize="20" VerticalAlignment="Center" Click="ButtonCommon_Click">
+                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextAlignment="Center">Найти</TextBlock>
+            </Button>
+
+        </Grid>
+
+        <DataGrid Width="760" x:Name="IndicatorsDataGrid" ItemsSource="{Binding Indicators, Mode=OneWay}" AutoGenerateColumns="False" Grid.Column="0" Grid.Row="1">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Key}"/>
+                <DataGridTextColumn Width="666" Binding="{Binding Value}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+
+</Window>

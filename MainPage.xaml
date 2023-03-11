@@ -1,0 +1,49 @@
+﻿<Page x:Class="ТСПО_1_JSON.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ТСПО_1_JSON"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="1000"
+      Title="Задания к практике 1">
+
+    <StackPanel ScrollViewer.HorizontalScrollBarVisibility="Auto" Orientation="Horizontal" HorizontalAlignment="Center">
+
+        <Grid Margin="30" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="500"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions >
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="ButtonTask1" Grid.Column="1" Grid.Row="0"  FontSize="20" VerticalAlignment="Center" Click="ButtonTask1_Click">
+                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextAlignment="Center">1. Формировать список профессиональных стандартов и визуализировать их в виде таблицы</TextBlock>
+            </Button>
+
+            <Button x:Name="ButtonTask2" Grid.Column="1" Grid.Row="1"  FontSize="20" VerticalAlignment="Center"  Click="ButtonTask2_Click">
+                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextAlignment="Center">2. Для указанной универсальной или общепрофессиональной компетенции формировать список индикаторов достижения</TextBlock>
+            </Button>
+
+            <Button x:Name="ButtonTask3" Grid.Column="1" Grid.Row="2"  FontSize="20" VerticalAlignment="Center"  Click="ButtonTask3_Click">
+                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextAlignment="Center">3. Для выбранной из списка дисциплины выводить полную информацию о ней</TextBlock>
+            </Button>
+
+            <Button x:Name="ButtonTask4" Grid.Column="1" Grid.Row="3"  FontSize="20" VerticalAlignment="Center"  Click="ButtonTask4_Click">
+                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextAlignment="Center">4. Формировать список дисциплин, которые ведутся в выбранном из списка семестре</TextBlock>
+            </Button>
+
+            <Button x:Name="ButtonTask5" Grid.Column="1" Grid.Row="4"  FontSize="20" VerticalAlignment="Center"  Click="ButtonTask5_Click">
+                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" TextAlignment="Center">5. Формировать график учебного процесса для указанного курса. Неделя длится с понедельника по субботу. Считать первой неделю, на которую приходится 1 сентября.</TextBlock>
+            </Button>
+        </Grid>
+    </StackPanel>
+    
+</Page>
