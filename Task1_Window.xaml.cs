@@ -18,7 +18,7 @@ namespace ТСПО_1_JSON
         {
             InitializeComponent();
             professionalStandards = new List<KeyValuePair<string, string>>();
-            var content = jsonUtils.ReadFileContent();
+            var content = jsonUtils.GetProfessionalStandarts();
             foreach (var pair in content)
             {
                 professionalStandards.Add(pair);

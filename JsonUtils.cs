@@ -16,7 +16,10 @@ namespace ТСПО_1_JSON
 
         public JsonUtils() { }
 
-        public List<KeyValuePair<string, string>> ReadFileContent()
+        /*
+         * 1. Формировать список профессиональных стандартов и визуализировать их в виде таблицы
+         */
+        public List<KeyValuePair<string, string>> GetProfessionalStandarts()
         {
             using var sr = new StreamReader(@startupPath + "\\" + fileName);
             var reader = new JsonTextReader(sr);
@@ -56,6 +59,9 @@ namespace ТСПО_1_JSON
             return GetCompetences("commonCompetencyRows");
         }
 
+        /*
+         * Получение списка компетенций по типу
+         */
         public ObservableCollection<KeyValuePair<string, string>> GetCompetences(string type)
         {
             using var sr = new StreamReader(@startupPath + "\\" + fileName);
@@ -76,6 +82,9 @@ namespace ТСПО_1_JSON
             return list;
         }
 
+        /*
+         * 2. Для указанной универсальной или общепрофессиональной компетенции формировать список индикаторов достижения
+         */
         public Indicators GetIndicatorsByCompenensy(string comp, string type)
         {
             using var sr = new StreamReader(@startupPath + "\\" + fileName);
@@ -103,6 +112,9 @@ namespace ТСПО_1_JSON
             return new Indicators(values);
         }
 
+        /*
+         * Получение списка всех дисциплин
+         */
         public ObservableCollection<KeyValuePair<string, string>> GetDisciplines()
         {
             var list = new ObservableCollection<KeyValuePair<string, string>>();
@@ -123,6 +135,9 @@ namespace ТСПО_1_JSON
             return list;
         }
 
+        /*
+         * 3. Для выбранной из списка дисциплины выводить полную информацию о ней
+         */
         public Discipline GetDisciplineInfo(string disciplineCode)
         {
             using var sr = new StreamReader(@startupPath + "\\" + fileName);
@@ -144,6 +159,9 @@ namespace ТСПО_1_JSON
             return new Discipline(disciplineCode, title, description, competences, unitsCost, terms);
         }
 
+        /*
+         * 4. Формировать список дисциплин, которые ведутся в выбранном из списка семестре
+         */
         public ObservableCollection<Discipline> GetDisciplines(string term)
         {
             var list = new ObservableCollection<Discipline>();
@@ -164,6 +182,10 @@ namespace ТСПО_1_JSON
             return list;
         }
 
+        /*
+         * 5. Формировать график учебного процесса для указанного курса.
+         * Неделя длится с понедельника по субботу. Считать первой неделю, на которую приходится 1 сентября
+         */
         public ObservableCollection<Schedule> GetSchedule(string course)
         {
             var schedules = new List<Schedule>();

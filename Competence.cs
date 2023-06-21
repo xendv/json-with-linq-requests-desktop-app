@@ -17,8 +17,8 @@ namespace ТСПО_1_JSON
 
         public Competence(List<string> values)
         {
-            this.title = values[1];
-            this.type = values[2];
+            title = values[1];
+            type = values[2];
         }
     }
 }
